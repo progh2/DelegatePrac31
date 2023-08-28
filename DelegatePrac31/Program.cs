@@ -24,12 +24,19 @@ namespace DelegatePrac31
                 new Product() { Name = "상추", Price = 300 },
             };
             // 정렬
+            // 1. Delegator 를 활용한 구현 방법
+            products.Sort(SortWithPrice);
 
             //출력
             foreach (var item in products)
             {
                 Console.WriteLine(item.Name + " : " + item.Price);
             }
+        }
+
+        private static int SortWithPrice(Product x, Product y)
+        {
+            return x.Price.CompareTo(y.Price);
         }
     }
 }
